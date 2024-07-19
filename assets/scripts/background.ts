@@ -23,6 +23,9 @@ export default class BackgroundClass extends cc.Component {
     }
 
     update (dt) {
+        cc.log(`background scr wigth : ${this.screenWight}, plane width: ${this.screenHeight}`)
+
+
         // 两张图片同时向下移动
         this.bgs[0].y = this.bgs[0].y - this.speed * dt
         this.bgs[1].y = this.bgs[1].y - this.speed * dt
