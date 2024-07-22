@@ -4,7 +4,7 @@ const {ccclass, property} = cc._decorator;
 export default class NewClass extends cc.Component {
 
     screenHeigth: number
-    speed: number = 70
+    speed: number = 200
 
     onLoad() {
         this.screenHeigth = cc.view.getCanvasSize().height;

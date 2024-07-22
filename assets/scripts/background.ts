@@ -7,7 +7,11 @@ export default class BackgroundClass extends cc.Component {
     speed: number = 50
 
     screenHeight: number;
-    bgs: cc.Node[];  // 两个子节点
+    bgs: cc.Node[];  // 两个背景图子节点
+
+    @property(cc.Prefab)
+    enemy: cc.Prefab = null
+    createEnemyInterval: number = 1
 
     onLoad () {
         this.screenHeight = cc.view.getCanvasSize().height;
@@ -17,6 +21,10 @@ export default class BackgroundClass extends cc.Component {
     }
 
     start () {
+        this.schedule(() => {
+            let enemy = cc.instantiate(this.enemy)
+            enemy.setParent(cc.director.getScene())
+        }, this.createEnemyInterval)
 
     }
 
