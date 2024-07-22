@@ -17,4 +17,9 @@ export default class NewClass extends cc.Component {
             this.node.destroy()
         }
     }
+
+    die() {
+        this.node.removeFromParent(true)
+        this.destroy()
+    }
 }

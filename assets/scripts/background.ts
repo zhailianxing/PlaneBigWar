@@ -1,7 +1,7 @@
 const {ccclass, property} = cc._decorator;
 
 @ccclass
-export default class BackgroundClass extends cc.Component {
+export default class Background extends cc.Component {
 
     @property
     speed: number = 50
@@ -13,10 +13,15 @@ export default class BackgroundClass extends cc.Component {
     enemy: cc.Prefab = null
     createEnemyInterval: number = 1
 
+    score: number = 0; 
+
     onLoad () {
         this.screenHeight = cc.view.getCanvasSize().height;
         // this.bgs = this.getComponentInChildren("BackGround")  // 这个是得到 子节点中的组件
         this.bgs = this.node.children;  // 这个是 得到 子节点
+
+        // 开启碰撞检测
+        cc.director.getCollisionManager().enabled = true
     
     }
 
@@ -41,4 +46,5 @@ export default class BackgroundClass extends cc.Component {
             this.bgs[1].y = this.bgs[0].y + this.bgs[0].height
         }
     }
+
 }
